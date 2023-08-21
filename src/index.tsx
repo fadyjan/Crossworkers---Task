@@ -24,11 +24,11 @@ const Menu: FunctionComponent = () => {
     <nav className="menu">
       <NavLink to="/">Intro</NavLink>
 
-      <NavLink to="/task/1">Task 1</NavLink>
+      <NavLink to="/task/1">Task 4</NavLink>
 
-      <NavLink to="/task/2">Task 2</NavLink>
+      <NavLink to="/task/2">Task 5</NavLink>
 
-      <NavLink to="/task/3">Task 3</NavLink>
+      <NavLink to="/task/3">Task 6</NavLink>
     </nav>
   );
 };
@@ -61,7 +61,7 @@ const Task: FunctionComponent = () => {
       case "1":
         return (
           <>
-            <h1>Task 1 - Use styles</h1>
+            <h1>Task 4 - Use styles</h1>
             <p className="task-description">
               This task is mainly about <b>styling</b> in ReactJS in order to
               create a <b>beautiful UI</b>. Use Sass to style the form with
@@ -77,7 +77,7 @@ const Task: FunctionComponent = () => {
       case "2":
       return (
         <>
-          <h1>Task 2 - Use component composition</h1>
+          <h1>Task 5 - Use component composition</h1>
           <p className="task-description">
             In this task, use your <b>React knowledge</b> to
             make a searchable list.
@@ -98,7 +98,7 @@ const Task: FunctionComponent = () => {
     case "3":
       return (
         <>
-          <h1>Task 3 - Create a Todo List and/or Freestyle</h1>
+          <h1>Task 6 - Create a Todo List and/or Freestyle</h1>
           <p className="task-description">
             This task is mainly about <b>combining different concepts</b> from
             ReactJS in order to create a <b>small and simple application</b>.
