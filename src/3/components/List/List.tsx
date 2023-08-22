@@ -1,24 +1,27 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { FunctionComponent} from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useSelector,useDispatch } from "react-redux";
+import './List.scss'
+import {deleteTaskById} from "../../store/ReduxSlices/DataSlice";
 
 const List: FunctionComponent<any> = () => {
-  // Define local state for searchOutput
-//   const [searchOutput, setSearchOutput] = useState([]);
+  const dispatch = useDispatch();
 
   // Get searchOutput from Redux
   const reduxAllTasks = useSelector(
     (state: any) => state.TasksSlice.searchOutput 
   );
-
-  // Update local state when Redux state changes
-//   useEffect(() => {
-//     // setSearchOutput(reduxSearchOutput);
-//   }, [reduxSearchOutput]);
-
+  
+  const HandleRemoveTask = (e:any)=>{
+    const elementID = e.target.closest("li").getAttribute("id")    
+    dispatch(deleteTaskById(elementID))
+  }
   return (
     <ul>
       {reduxAllTasks.map((record: any) => (
-        <li>{record.TaskName}</li>
+        <li key={record.Id} id = {record.Id} className="LiElement">{record.TaskName}
+          <DeleteIcon onClick={HandleRemoveTask}></DeleteIcon>
+        </li>
       ))}
     </ul>
   );
