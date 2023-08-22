@@ -63,8 +63,15 @@ const TasksSlice = createSlice({
       const taskToUpdate = state.AllTasks.find((task) => task.Id === taskId);
       if (taskToUpdate) {
         taskToUpdate.TaskStatus = "Completed";
+      }     
+      console.log(state.activeCategory)
+      if (state.activeCategory === "Pending Tasks") {
+        TasksSlice.caseReducers.setNotCompletedTasks(state);
+      } else if (state.activeCategory === "Completed Tasks") {
+        TasksSlice.caseReducers.setCompletedTasks(state);
+      } else {
+        TasksSlice.caseReducers.setAllTasks(state);
       }
-        TasksSlice.caseReducers.setNotCompletedTasks(state)
     }
   },
 });
