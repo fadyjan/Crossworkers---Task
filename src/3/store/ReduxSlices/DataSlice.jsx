@@ -56,6 +56,16 @@ const TasksSlice = createSlice({
         TasksSlice.caseReducers.setAllTasks(state);
       }
     },
+    changeTaskStatus :(state,action)=>{
+      state.AllTasks[action.payload-1].TaskStatus ="Completed"
+     
+      const taskId = action.payload;
+      const taskToUpdate = state.AllTasks.find((task) => task.Id === taskId);
+      if (taskToUpdate) {
+        taskToUpdate.TaskStatus = "Completed";
+      }
+        TasksSlice.caseReducers.setNotCompletedTasks(state)
+    }
   },
 });
 
@@ -65,6 +75,7 @@ export const {
   setAllTasks,
   addNewTask,
   setActiveCategory,
-  deleteTaskById
+  deleteTaskById,
+  changeTaskStatus
 } = TasksSlice.actions;
 export default TasksSlice.reducer;
